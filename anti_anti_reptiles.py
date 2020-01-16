@@ -17,10 +17,7 @@ headers={
     "Accept-Charset": "gb2312,gbk;q=0.7,utf-8;q=0.7,*;q=0.7",
 }
 html = requests.get(my_url,headers=headers,verify=False).content.decode('utf-8')
-# uClient = uReq(req)
-# page_html = uClient.read()
-# uClient.close()
 
 page_soup = soup(html, "html.parser")
 phonetic_symbols = page_soup.find_all("bdo")
-print(phonetic_symbols[0],phonetic_symbols[1])
+print(phonetic_symbols[0].string,phonetic_symbols[1].string)
